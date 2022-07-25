@@ -22,7 +22,7 @@ import com.gl.javafsd.employeemanagement.service.UserService;
 import com.gl.javafsd.employeemanagement.serviceImpl.CustomUserDetailsService;
 
 @EnableWebSecurity
-public class SecurityConfigurationWithJDBC extends WebSecurityConfigurerAdapter{
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	
 	@Autowired
 	DataSource dataSource;
