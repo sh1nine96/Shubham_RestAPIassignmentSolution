@@ -27,9 +27,6 @@ public class SecurityConfigurationWithJDBC extends WebSecurityConfigurerAdapter{
 	@Autowired
 	DataSource dataSource;
 	
-//	@Autowired
-//	UserDetailsService userDetailsService;
-	
 	@Autowired
 	UserService userService;
 
@@ -38,12 +35,7 @@ public class SecurityConfigurationWithJDBC extends WebSecurityConfigurerAdapter{
 		auth.userDetailsService(userService).passwordEncoder(encoder());
 		
 		AuthenticationProvider authenticationProvider = daoAuthenticationProvider();
-		auth.authenticationProvider(authenticationProvider);
-		
-		//PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-//		auth.jdbcAuthentication().dataSource(dataSource).withDefaultSchema()
-//		.withUser(User.withUsername("shubham").password(encoder().encode("shubham")).roles("ADMIN_USER"))
-//		.withUser(User.withUsername("riya").password(encoder().encode("riya")).roles("NORMAL_USER"));
+		auth.authenticationProvider(authenticationProvider);	
 			
 	}
 	
@@ -91,17 +83,9 @@ public class SecurityConfigurationWithJDBC extends WebSecurityConfigurerAdapter{
 		.antMatchers("/**")
 		.hasIpAddress("localhost")
 		.and().addFilter(getAuthenticationFilter());
-		
-				/*
-				 * .antMatchers("/createService/addEmployees").hasAnyRole("ADMIN")
-				 * .antMatchers("/").permitAll()
-				 */
-		
+					
 		
 	}
 	
 	
-	
-	
-
 }
