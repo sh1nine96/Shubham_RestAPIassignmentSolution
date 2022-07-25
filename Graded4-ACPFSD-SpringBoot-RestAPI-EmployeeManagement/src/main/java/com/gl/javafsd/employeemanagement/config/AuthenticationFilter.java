@@ -57,9 +57,6 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter{
 	    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
 	       System.out.println(((org.springframework.security.core.userdetails.User) authResult.getPrincipal()).getUsername());
 	       String username = ((org.springframework.security.core.userdetails.User) authResult.getPrincipal()).getUsername();
-//	       ((User) authResult.getPrincipal()).getUsername();
-//	        User userDetails = userService.getUserDetails(username);
-//	        System.out.println(userDetails);
 	        
 	    }
 	
